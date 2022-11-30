@@ -1,0 +1,98 @@
+[
+  {
+    "name": "Pumpkin Praline Tart",
+    "description": "A butter tart shell with a light pumpkin filling garnished with pecan praline and  fresh whipped cream.",
+    "price": 7.95,
+    "flavor": ["something else"],
+    "allergy": [],
+    "image": "images/1.jpeg"
+  },
+  {
+    "name": "All American Chocolate Cake",
+    "description": "Dark chocolate cake layers filled with rich ganache, finished witha chocolate buttercream.",
+    "price": 6.95,
+    "flavor": ["chocolate"],
+    "allergy": ["nut-free"],
+    "image": "images/2.jpeg"
+  },
+  {
+    "name": "Carrot Cake",
+    "description": "A moist carrot cake made with coconut, walnuts, carrots, pineapple, and finished with a cream cheese frosting.",
+    "price": 6.95,
+    "flavor": ["something else", "fruity"],
+    "allergy": [],
+    "image": "images/3.jpeg"
+  },
+  {
+    "name": "Chocolate Mousse Cake",
+    "description": "Dark chocolate mousse on a buttery chocolate crust topped with whipped cream.",
+    "price": 7.25,
+    "flavor": ["chocolate"],
+    "allergy": ["nut-free"],
+    "image": "images/4.jpeg"
+  },
+  {
+    "name": "Lemon Mousse Cake",
+    "description": "A light chiffon cake brushed with lemon syrup, layered with lemon mousse, and finished with a lemon buttercream.",
+    "price": 6.95,
+    "flavor": ["fruity"],
+    "allergy": ["nut-free"],
+    "image": "images/5.jpeg"
+  },
+  {
+    "name": "Old Fashioned Coconut Cake",
+    "description": "A gluten free cake made with coconut and almond flour. Filled and frosted with a coconut cream cheese frosting.",
+    "price": 6.95,
+    "flavor": ["fruity"],
+    "allergy": ["gluten-free"],
+    "image": "images/6.jpeg"
+  },
+  {
+    "name": "Tiramisu",
+    "description": "Light sponge layers brushed with espresso rum syrup and layered with creamy mascarpone and unsweetened cocoa. Finished with a coffee buttercream.",
+    "price": 7.95,
+    "flavor": ["coffee"],
+    "allergy": ["nut-free"],
+    "image": "images/7.jpeg"
+  },
+  {
+    "name": "Torta Di Cioccolata",
+    "description": "A smooth flourless chocolate torte made with French chocolate and a hint of almond butter. Garnished with fresh raspberries. Comes with a side of fresh whipped cream & raspberry sauce.",
+    "price": 8.50,
+    "flavor": ["chocolate", "fruity"],
+    "allergy": ["gluten-free", "nut-free"],
+    "image": "images/8.jpeg"
+  },
+  {
+    "name": "Mini Chocolate Pound Cake",
+    "description": "Moist chocolate pound cake brushed with espresso and covered in a rich dark chocolate ganache. Comes with a side of whipped cream.",
+    "price": 6.95,
+    "flavor": ["chocolate", "coffee"],
+    "allergy": ["nut-free"],
+    "image": "images/9.jpeg"
+  },
+  {
+    "name": "Butterscotch Crumb Cake",
+    "description": "Best served warm. Comes with a side of whipped cream. Available after 10am",
+    "price": 5.95,
+    "flavor": ["something else"],
+    "allergy": ["nut-free"],
+    "image": "images/10.jpeg"
+  },
+  {
+    "name": "Chocolate Fudge Brownie",
+    "description": "Chocolate brownie iced in chocolate ganache.",
+    "price": 4.25,
+    "flavor": ["chocolate"],
+    "allergy": ["nut-free"],
+    "image": "images/11.jpeg"
+  },
+  {
+    "name": "Chocolate Peanut Butter Brownie",
+    "description": "A chocolate brownie, topped with both a layer of peanut butter and chocolate ganache, then finished with chopped peanuts. A peanut butter lover’s dream!",
+    "price": 4.25,
+    "flavor": ["chocolate"],
+    "allergy": [],
+    "image": "images/12.jpeg"
+  }
+]
