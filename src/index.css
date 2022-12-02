@@ -16,17 +16,52 @@ code {
   display:flex;
   width:100%;
 }
-#w30{
+
+#filters{
+  background:rgb(239, 237, 145);
+  width:20%;
+}
+
+#filters-content{
+  position: fixed;
+  text-align: center;
+}
+
+#menu{
   background:rgb(212, 104, 226);
-  width:30%;
+  width:60%;
 }
 
-#w70{
+
+#cart{
   background:pink;
-  width:70%;
+  width:20%;
 }
 
-img{
-  width: 60%;
+#cart-content{
+  position: fixed;
+  text-align: center;
 }
 
+#all-items{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+#item-card{
+  width:40%;
+  height:400px;
+  padding: 1rem;
+  border:2px solid rgb(251, 248, 248);
+}
+/* #all-items{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+#item-card{
+  min-width: 10%;
+} */

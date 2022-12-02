@@ -1,7 +1,8 @@
 import "./App.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import bakeryData from "./assets/bakery-data.json";
 import BakeryItem from "./components/BakeryItem";
+import DisplayMenu from "./components/DisplayMenu";
 
 /* ####### DO NOT TOUCH -- this makes the image URLs work ####### */
 bakeryData.forEach((item) => {
@@ -10,28 +11,109 @@ bakeryData.forEach((item) => {
 /* ############################################################## */
 
 function App() {
-  // TODO: use useState to create a state variable to hold the state of the cart
-  /* add your cart state code here */
   
   const [cart, setCart] = useState([]);
+  const [menu, setMenu] = useState([]);
+  const [order, setOrder] = useState("default");
+  const [filterList, setFilter] = useState([]);
+
   let sum = 0;
+
+  const flavorData = [
+    { id: "1", value: "chocolate" },
+    { id: "2", value: "fruity" },
+    { id: "3", value: "coffee" },
+    { id: "4", value: "something else" },
+  ];
+
+  const reset = () => {
+    setCart([]);
+  }
+
+  const HandleOrder = (event) => {
+    const value = event.target.value;
+    const isChecked = event.target.checked;
+    if (isChecked) {
+      setOrder(value);
+    }
+  }
+
+
+  const handleSelect = (event) => {
+    const value = event.target.value;
+    const isChecked = event.target.checked;
+    let newList = filterList;
+
+    if (isChecked) {
+      //Add checked item into checkList
+      filterList.push(value);
+      setFilter(filterList); 
+    } else {
+      //Remove unchecked item from checkList
+      newList = filterList.filter((item) => item !== value);
+      setFilter(newList);
+    }
+  }
+
+
+  const render_menu = (all_data) => {
+    return all_data.map((item, index) => ( 
+    <div id="item-card"> <BakeryItem item={item} updateCart = {setCart} cart={cart}/> </div>
+  ))}
+
   return (
     <div className="App" id="wrapper">
-      <div id="w70">
-        <h1>My Bakery</h1> 
-        {bakeryData.map((item, index) => ( // TODO: map bakeryData to BakeryItem components
-            <BakeryItem item={item} updateCart = {setCart} cart={cart}/>
-            // <p> item.price </p>
-          //  <p>Bakery Item {index}</p> // replace with BakeryItem component
-        ))}
+      <div id="filters">
+        <div id="filters-content">
+        <p><b>Sort by</b></p>
+        <input type="radio" value="price" name="sort" onChange={HandleOrder}/> Price
+        <br></br>
+        <input type="radio" value="name" name="sort" onChange={HandleOrder}/> Name
+
+        <p><b>Filter by flavor</b></p>
+        {flavorData.map((item, index) => {
+          return (
+            <div key={item.id} className="checkbox-container">
+              <input
+                type="checkbox"
+                name="flavor"
+                value={item.value}
+                onChange={handleSelect}
+              />
+              <label>{item.value}</label>
+            </div>
+          );
+        })}
+
+        <p><b>Filter by allergy</b></p>
+        </div>
+      </div>
+
+      <div id="menu">
+        <h1>Browse and mark your favorite cake slices <br></br>from <a href="https://pastichefinedesserts.com/"> Pastiche Fine Dessert </a></h1> 
+        <div id="all-items">
+        {<DisplayMenu order={order} setOrder={setOrder} filter={filterList} menu={bakeryData} setMenu={setMenu}/>}
+        {render_menu(menu)};
+        </div>
       </div>
       
 
-      <div id="w30">
-        <h2>Cart</h2>
-        {cart.map(e => <p> {e.name}</p>)}
-        {cart.forEach(e => {sum+= e.price})}
-        <p>Total: ${sum}</p>
+      <div id="cart">
+        <div id="cart-content">
+        <h2>Favorite</h2>
+        {cart.length > 0
+          ? cart.forEach(e => {sum+= e.price})
+          : void(0)
+        }
+        {
+          cart.length > 0
+          ? cart.map(e => <p> {e.name}</p>)
+          : void(0)
+        }
+        {/* {cart.forEach(e => {sum+= e.price})} */}
+        <p>Total price: ${sum.toFixed(2)}</p>
+        <button onClick={reset}>Reset</button>
+        </div>
       </div>
     </div>
   );
@@ -39,28 +121,3 @@ function App() {
 
 export default App;
 
-// import logo from './logo.svg';
-// import './App.css';
-
-// function App() {
-//   return (
-//     <div className="App">
-//       <header className="App-header">
-//         <img src={logo} className="App-logo" alt="logo" />
-//         <p>
-//           Edit <code>src/App.js</code> and save to reload.
-//         </p>
-//         <a
-//           className="App-link"
-//           href="https://reactjs.org"
-//           target="_blank"
-//           rel="noopener noreferrer"
-//         >
-//           Learn React
-//         </a>
-//       </header>
-//     </div>
-//   );
-// }
-
-// export default App;

@@ -36,3 +36,22 @@
     transform: rotate(360deg);
   }
 }
+
+img{
+  min-width: 10%;
+  max-width: 30%;
+}
+
+#item{
+  background: tomato;
+  padding: 5px;
+  width: 100px;
+  height: 100px;
+  margin: 10px;
+
+  line-height: 100px;
+  color: white;
+  font-weight: bold;
+  font-size: 2em;
+  text-align: center;
+}

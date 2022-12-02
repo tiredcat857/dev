@@ -1,23 +1,45 @@
-// TODO: create a component that displays a single bakery item
-// const [count, setCount] = useState(0);
-
-
 export default function BakeryItem(props) {
     const {item, updateCart, cart} = props;
     // const item = props.item;
     // const updateCart = props.updateCart;
     // const cart = props.cart;
     const handleClick = () => {
-        updateCart([...cart, item]);
+        const index = cart.indexOf(item);
+        if (index > -1) { // only splice array when item is found
+            console.log("already there")
+        }
+        else {
+            cart.push(item);
+        }
+        updateCart([...cart]);
     }
-	return (
-        <div className="item">
+
+    const handleClick2 = (item) => {
+        const index = cart.indexOf(item);
+        if (index > -1) { // only splice array when item is found
+            cart.splice(index, 1);// 2nd parameter means remove one item only
+        }
+        else {
+            console.log("no item!")
+        }
+        updateCart([...cart]);
+    }
+
+    return (
+        <div classname="item-card">
             <img src = {item.image} />
-            <p> {item.name}  ${item.price} </p>
-            <p> {item.description} </p>
-            <p> {item.flavor} </p>
-            <p> {item.allergy} </p>
-            <button onClick={handleClick}>Add to cart</button>
+            <br></br>
+            <b> {item.name}  ${item.price} </b>
+            <p align="left"> {item.description} </p>
+            <p> <b>Flavor:</b> {item.flavor.join(", ")} </p>
+            {
+                item.allergy.length > 0
+                ? <p> <b>Allergy:</b> {item.allergy.join(", ")} </p>
+                : <p> <b>Allergy:</b> contains nuts and gluten </p>
+            }
+            <button onClick={handleClick}>Add to favorite</button>
+            <button onClick={() => handleClick2(item)}>Remove from favorite</button>
         </div>	
-	);
+    );
+	
 }
