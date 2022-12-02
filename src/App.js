@@ -2,7 +2,7 @@ import "./App.css";
 import { useState, useEffect } from "react";
 import bakeryData from "./assets/bakery-data.json";
 import BakeryItem from "./components/BakeryItem";
-import DisplayMenu from "./components/DisplayMenu";
+import UpdateMenu from "./components/UpdateMenu";
 
 /* ####### DO NOT TOUCH -- this makes the image URLs work ####### */
 bakeryData.forEach((item) => {
@@ -56,7 +56,7 @@ function App() {
   }
 
 
-  const render_menu = (all_data) => {
+  const renderMenu = (all_data) => {
     return all_data.map((item, index) => ( 
     <div id="item-card"> <BakeryItem item={item} updateCart = {setCart} cart={cart}/> </div>
   ))}
@@ -92,8 +92,8 @@ function App() {
       <div id="menu">
         <h1>Browse and mark your favorite cake slices <br></br>from <a href="https://pastichefinedesserts.com/"> Pastiche Fine Dessert </a></h1> 
         <div id="all-items">
-        {<DisplayMenu order={order} setOrder={setOrder} filter={filterList} menu={bakeryData} setMenu={setMenu}/>}
-        {render_menu(menu)};
+        {<UpdateMenu order={order} setOrder={setOrder} filter={filterList} menu={bakeryData} setMenu={setMenu}/>}
+        {renderMenu(menu)};
         </div>
       </div>
       

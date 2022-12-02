@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-export default function DisplayMenu(props) {
+export default function UpdateMenu(props) {
     const {order, setOrder, filter, menu, setMenu} = props;
     
     // helper to find if two arrays share any common element
@@ -8,16 +8,20 @@ export default function DisplayMenu(props) {
         return arr1.some(item => arr2.includes(item))
     }
 
-    let newArray = menu; //display all if no filter is selected
+    // use newArray to hold the updated menu.
+    // default is the original menu to display all items if no filter is selected
+    let newArray = menu; 
 
     useEffect(() => {
+
+        // update based on filters selected
         if (filter.length > 0) {
             newArray = menu.filter(function (el) {
                 return findCommonElements(el.flavor, filter)
             });
         }
 
-
+        // update based on order set
         if (order === "default") { 
             setMenu(newArray);
         } else if (order === "price") {
@@ -33,5 +37,5 @@ export default function DisplayMenu(props) {
     }, [order, filter]);
     
     return (<div classname="menu">  
-    </div>);
+    </div>); // returns nothing because render is in a different function
 }
