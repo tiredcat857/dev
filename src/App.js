@@ -35,6 +35,13 @@ function App() {
   const reset = () => {
     setCart([]);
   }
+  
+  const reset2 = () => {
+    setMenu(bakeryData);
+    setOrder("default");
+    setFilter([]);
+    setAllergy([]);
+  }
 
   
 
@@ -131,9 +138,9 @@ function App() {
       <div id="filters">
         <div id="filters-content">
         <p><b>Sort by</b></p>
-        <input type="radio" value="price" name="sort" onChange={HandleOrder}/> Price
+        <input type="radio" value="price" name="sort" onChange={HandleOrder}/> price
         <br></br>
-        <input type="radio" value="name" name="sort" onChange={HandleOrder}/> Name
+        <input type="radio" value="name" name="sort" onChange={HandleOrder}/> name
 
         <br></br>
         <br></br>
@@ -171,6 +178,8 @@ function App() {
             </div>
           );
         })}
+
+      <button onClick={reset2}>Reset filters</button>
 
       </div>
       </div>

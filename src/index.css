@@ -20,28 +20,33 @@ code {
 #filters{
   background:rgb(239, 237, 145);
   width:20%;
+  min-height: 500px;
 }
 
 #filters-content{
+  padding-left: 2rem;
   position: fixed;
-  text-align: center;
+  text-align: left;
   width:20%;
 }
 
 #menu{
   background:rgb(212, 104, 226);
   width:60%;
+  min-height: 500px;
 }
 
 
 #cart{
   background:pink;
   width:20%;
+  min-height: 500px;
 }
 
 #cart-content{
   position: fixed;
-  text-align: center;
+  text-align: left;
+  padding-left: 2rem;
 }
 
 #all-items{
