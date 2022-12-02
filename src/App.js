@@ -13,7 +13,7 @@ bakeryData.forEach((item) => {
 function App() {
   
   const [cart, setCart] = useState([]);
-  const [menu, setMenu] = useState([]);
+  const [menu, setMenu] = useState(bakeryData);
   const [order, setOrder] = useState("default");
   const [filterList, setFilter] = useState([]);
 
@@ -36,6 +36,21 @@ function App() {
     if (isChecked) {
       setOrder(value);
     }
+
+    let newArray = menu; 
+    // update based on order set
+      if (order === "default") { 
+        setMenu(newArray);
+    } else if (order === "price") {
+        newArray.sort((a,b) => a.price - b.price);
+        setMenu(newArray);
+    } else if (order === "name") {
+        newArray.sort((a, b) => (a.name > b.name) ? 1 : -1);
+        setMenu(newArray);
+    } else {
+        console.log("something wrong");
+    }
+  
   }
 
 
@@ -55,11 +70,6 @@ function App() {
     }
   }
 
-
-  const renderMenu = (all_data) => {
-    return all_data.map((item, index) => ( 
-    <div id="item-card"> <BakeryItem item={item} updateCart = {setCart} cart={cart}/> </div>
-  ))}
 
   return (
     <div className="App" id="wrapper">
@@ -92,8 +102,10 @@ function App() {
       <div id="menu">
         <h1>Browse and mark your favorite cake slices <br></br>from <a href="https://pastichefinedesserts.com/"> Pastiche Fine Dessert </a></h1> 
         <div id="all-items">
-        {<UpdateMenu order={order} setOrder={setOrder} filter={filterList} menu={bakeryData} setMenu={setMenu}/>}
-        {renderMenu(menu)};
+        {/* {<UpdateMenu order={order} setOrder={setOrder} filter={filterList} menu={bakeryData} setMenu={setMenu}/>} */}
+        {
+          menu.map((item, index) => ( <div id="item-card"> <BakeryItem item={item} updateCart = {setCart} cart={cart}/> </div>))
+        }
         </div>
       </div>
       

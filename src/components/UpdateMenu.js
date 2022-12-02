@@ -36,6 +36,6 @@ export default function UpdateMenu(props) {
         
     }, [order, filter]);
     
-    return (<div classname="menu">  
+    return (<div className="menu">  
     </div>); // returns nothing because render is in a different function
 }

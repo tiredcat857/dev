@@ -26,7 +26,7 @@ export default function BakeryItem(props) {
     }
 
     return (
-        <div classname="item-card">
+        <div className="item-card">
             <img src = {item.image} />
             <br></br>
             <b> {item.name}  ${item.price} </b>
