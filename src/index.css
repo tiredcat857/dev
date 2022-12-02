@@ -25,6 +25,7 @@ code {
 #filters-content{
   position: fixed;
   text-align: center;
+  width:20%;
 }
 
 #menu{

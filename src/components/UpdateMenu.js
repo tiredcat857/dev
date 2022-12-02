@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
 export default function UpdateMenu(props) {
-    const {order, setOrder, filter, menu, setMenu} = props;
+    const {order, setOrder, filter, allergy, menu, setMenu} = props;
     
     // helper to find if two arrays share any common element
     const findCommonElements = (arr1, arr2) => {
@@ -17,7 +17,15 @@ export default function UpdateMenu(props) {
         // update based on filters selected
         if (filter.length > 0) {
             newArray = menu.filter(function (el) {
-                return findCommonElements(el.flavor, filter)
+                return el.flavor.sort().toString() == filter.sort().toString() ||
+                filter.every(val => el.flavor.includes(val)) 
+            });
+        }
+
+        if (allergy.length > 0) {
+            newArray = newArray.filter(function (el) {
+                return el.allergy.sort().toString() == allergy.sort().toString() ||
+                allergy.every(val => el.allergy.includes(val)) 
             });
         }
 
@@ -34,7 +42,7 @@ export default function UpdateMenu(props) {
             console.log("something wrong");
         }
         
-    }, [order, filter]);
+    }, [order, filter, allergy, menu]);
     
     return (<div className="menu">  
     </div>); // returns nothing because render is in a different function

@@ -6,7 +6,7 @@ export default function BakeryItem(props) {
     const handleClick = () => {
         const index = cart.indexOf(item);
         if (index > -1) { // only splice array when item is found
-            console.log("already there")
+            alert("already in Favorite")
         }
         else {
             cart.push(item);
@@ -20,7 +20,7 @@ export default function BakeryItem(props) {
             cart.splice(index, 1);// 2nd parameter means remove one item only
         }
         else {
-            console.log("no item!")
+            alert("nothing to remove")
         }
         updateCart([...cart]);
     }
